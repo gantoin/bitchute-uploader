@@ -7,8 +7,8 @@ Library to upload a video on bitchute with a Selenium bot
 
 ```java
 BitchuteVideo video = new BitchuteVideo();
-video.setTitle("Title: Lorem Ipsum");
-video.setDescription("Description: Lorem Ipsum");
+video.setTitle("My new uncensored Bitchute video");
+video.setDescription("Hi guys! This is my new video. Thanks for watching!");
 video.setVideoPath("/tmp/lorem_video.mp4");
 video.setCoverPath("/tmp/lorem_video.jpg");
 ```
