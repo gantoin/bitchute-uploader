@@ -10,14 +10,10 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import lombok.RequiredArgsConstructor;
-import lombok.SneakyThrows;
-
 import domain.BitchuteUpload;
 import domain.BitchuteVideo;
 import exception.AuthenticateErrorException;
 
-@RequiredArgsConstructor
 public class UploadService {
 
     public static final String BITCHUTE_URL = "https://www.bitchute.com/";
@@ -47,12 +43,15 @@ public class UploadService {
         tryToFinish(driver.findElement(By.id("finish-button")));
     }
 
-    @SneakyThrows
     private void tryToFinish(WebElement finishButton) {
         try {
             finishButton.click();
         } catch (ElementClickInterceptedException exception) {
-            Thread.sleep(30000);
+            try {
+                Thread.sleep(30000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             tryToFinish(finishButton);
         }
     }
