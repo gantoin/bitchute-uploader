@@ -3,7 +3,7 @@ Library to upload a video on bitchute with a Selenium bot
 
 ## Maven dependency
 
-Step 1. Add the JitPack repository to your build file
+Step 1. Add the JitPack repository
 ```xml
 <repositories>
   <repository>
