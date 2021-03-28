@@ -1,6 +1,27 @@
 # bitchute-uploader
 Library to upload a video on bitchute with a Selenium bot
 
+## Maven dependency
+
+Step 1. Add the JitPack repository to your build file
+```xml
+<repositories>
+  <repository>
+    <id>jitpack.io</id>
+    <url>https://jitpack.io</url>
+  </repository>
+</repositories>
+```
+
+Step 2. Add the dependency
+```xml
+<dependency>
+  <groupId>com.github.gantoin</groupId>
+  <artifactId>bitchute-uploader</artifactId>
+  <version>1.1</version>
+</dependency>
+```
+
 ## How to use it? 
 
 ### Create a new `BitchuteVideo`
