@@ -60,7 +60,7 @@ public class UploadService {
     private boolean successToLogIn(BitchuteUpload bitchuteUpload, WebDriver driver) {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable( //
-                driver.findElement(By.className("unauth-link")).findElements(By.tagName("a")).stream().findFirst().orElseThrow())).click();
+                driver.findElement(By.className("unauth-link")).findElements(By.tagName("a")).stream().findFirst().get())).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("id_username"))).sendKeys(bitchuteUpload.getUser());
         driver.findElement(By.id("id_password")).sendKeys(bitchuteUpload.getPassword());
         driver.findElement(By.id("auth_submit")).click();
