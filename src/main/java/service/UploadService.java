@@ -41,6 +41,7 @@ public class UploadService {
         driver.findElement(By.id("fileupload")).sendKeys(video.getVideoPath());
         driver.findElement(By.id("fileupload")).sendKeys(video.getCoverPath());
         tryToFinish(driver.findElement(By.id("finish-button")));
+        driver.close();
     }
 
     private void tryToFinish(WebElement finishButton) {
