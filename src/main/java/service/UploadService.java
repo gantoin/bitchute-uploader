@@ -41,6 +41,10 @@ public class UploadService {
         driver.findElement(By.id("fileupload")).sendKeys(video.getVideoPath());
         driver.findElement(By.id("fileupload")).sendKeys(video.getCoverPath());
         tryToFinish(driver.findElement(By.id("finish-button")));
+
+        // 3 hours to upload max
+        WebDriverWait waitUploadFinished = new WebDriverWait(driver, 10800000);
+        waitUploadFinished.until(ExpectedConditions.urlContains("bitchute.com/video/"));
         driver.close();
     }
 
@@ -48,11 +52,7 @@ public class UploadService {
         try {
             finishButton.click();
         } catch (ElementClickInterceptedException exception) {
-            try {
-                Thread.sleep(30000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            sleep();
             tryToFinish(finishButton);
         }
     }
@@ -72,5 +72,11 @@ public class UploadService {
         return driver.findElement(By.id("auth_login_error")).getAttribute("class").contains("hidden");
     }
 
-
+    private void sleep() {
+        try {
+            Thread.sleep(30000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }
